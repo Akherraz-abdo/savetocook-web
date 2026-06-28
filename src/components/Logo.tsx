@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { IoLeaf } from "react-icons/io5";
 import { APP_NAME } from "@/lib/constants";
 
 type LogoProps = {
@@ -19,15 +18,16 @@ export default function Logo({
   return (
     <Link href="/" className={`flex items-center gap-2.5 ${className}`}>
       <div
-        className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-primary-light"
+        className="relative h-9 w-9 shrink-0 overflow-hidden rounded-lg"
         aria-hidden
       >
         <Image
           src="/logo-mark.png"
           alt=""
-          width={40}
-          height={40}
+          width={36}
+          height={36}
           className="h-full w-full object-cover"
+          priority
         />
       </div>
       {showText && (
@@ -40,8 +40,14 @@ export default function Logo({
 export function PremiumBrandMark({ className = "" }: { className?: string }) {
   return (
     <div className={`flex items-center gap-2 ${className}`}>
-      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-light">
-        <IoLeaf className="text-primary" size={22} />
+      <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-lg">
+        <Image
+          src="/logo-mark.png"
+          alt=""
+          width={36}
+          height={36}
+          className="h-full w-full object-cover"
+        />
       </div>
       <span className="text-xl font-bold text-text">{APP_NAME} Premium</span>
     </div>
